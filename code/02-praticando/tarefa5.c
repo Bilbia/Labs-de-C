@@ -5,8 +5,16 @@
 
 
 #include <stdio.h>
+#include <math.h>
 
 // TODO: declare função manhattan aqui. Veja abaixo como ela será usada
+int manhattan(int num1, int num2, int num3, int num4){
+    int x = 0, y = 0, sum;
+    x = abs(num1 - num3);
+    y = abs(num2 - num4);
+    sum = x+y;
+    return sum;
+}
 
 
 int main() {

@@ -5,9 +5,24 @@
 
 
 #include <stdio.h>
+#include <math.h>
+
 
 // TODO: declare função modulo aqui. Veja abaixo como ela será usada
+int modulo(int num){
+    // usando uma funcao do math
+    // int mod = abs(num);
 
+    // na marra mesmo
+    int mod;
+    if (num < 0){
+        mod = num *(-1);
+    }
+    else{
+        mod = num;
+    }
+    return mod;
+}
 
 int main() {
     
