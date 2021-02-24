@@ -1,0 +1,17 @@
+Digite um numero: 
+Digite outro: 
+O primeiro numero e multiplo do segundo
+Digite um numero: 
+Digite outro: 
+O primeiro numero nao e multiplo do segundo
+Digite um numero: 
+Digite outro: 
+O primeiro numero nao e multiplo do segundo
+Digite um numero: 
+Digite outro: 
+O primeiro numero e multiplo do segundo
+Digite um numero: 
+Digite outro: 
+O segundo numero nao pode ser zero
+Digite um numero: 
+Digite outro: 
