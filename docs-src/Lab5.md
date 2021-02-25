@@ -107,9 +107,7 @@ a esse símbolo.
 Dizemos que um apontador `p` *aponta* para uma variável `v` se o endereço de `v`
 está armazenado em `p`. Visualmente, podemos representar isso da seguinte forma:
 
-<center>
-    <img src="../imgs/day5-pointers/apontador.png" width="200px">
-</center>
+![](imgs/day5-pointers/apontador.png)
 
 Esta figura é uma representação visual de `p` apontar para `v`. Nesse caso, `v` é uma variável
 inteira cujo valor é `5` e `p` é um apontador cujo valor é o endereço de
@@ -132,7 +130,7 @@ Vamos declarar o apontador `p` do exemplo acima.
     int *p;
 ~~~
 
-Por que estamos usando `int`? Porque apontadores em C *sabem o tipo da variável
+Por que estamos usando `int`? Porque apontadores em C *não sabem o tipo da variável
 para a qual apontam*, portanto esse tipo deve estar na declaração. Assim, a
 combinação de `int` seguido por `*` representa a declaração de um apontador para
 variável inteira.
@@ -201,7 +199,7 @@ Agora vejam como o exemplo abaixo é interessante.
 
 
 !!! warning
-    Não vá para a próxima página antes de validar suas respostas com um dos
+    Não vá para a próxima parte antes de validar suas respostas com um dos
     professores.
 
 
@@ -382,6 +380,8 @@ como em objetos Java.
     receber duas variáveis do tipo `ponto` em vez de receber quatro variáveis do
     tipo `int`.
 
+    Escreva sua solução em `tarefa3.c` e teste usando `make tarefa3`.
+
 
 !!! example
     Escreva um programa completo que:
@@ -471,6 +471,8 @@ Pare e respire de novo.
     não. Se os dois pontos são iguais, ela deve devolver `0` e não escrever nada
     no terceiro. Se os dois pontos são diferentes, ela deve devolver `1` e
     escrever o resultado no terceiro.
+
+    Escreva sua solução em `tarefa6.c` e teste usando `make tarefa6`.
 
 
 !!! warning

@@ -1,9 +1,5 @@
 # Lab 4 - Arrays, Strings e Matrizes
 
-| Pasta            | Arquivo  |
-|------------------|----------|
-| `code/04-arrays` | `soma.c` |
-
 Na última aula trabalhamos com conceitos básicos de  *C* e com tipos de dados simples (inteiros e números fracionários). Hoje veremos as primeiras estruturas complexas em *C*: vetores, matrizes e strings. 
 
 ## Arrays em *C*
@@ -24,14 +20,14 @@ O acesso a elementos também é bastante simples:
 printf("%ld\n", A[3]);
 ~~~
 
-A linha acima imprime o primeira valor do vetor. O uso com `scanf` segue a mesma lógica dos tipos simples:
+A linha acima imprime o primeiro elemento do vetor. O uso com `scanf` segue a mesma lógica dos tipos simples:
 
 ~~~{.c}
 scanf("%ld", &vetor[0]);
 ~~~
 
 !!! question long 
-    Simule o código abaixo manualmente e escreva sua saída abaixo.
+    Simule o código abaixo manualmente e escreva sua saída em um papel!!
 
     ```c
     #include <stdio.h>
@@ -49,12 +45,10 @@ scanf("%ld", &vetor[0]);
         
         return 0;	
     }
-
     ```
 
-
 !!! question long 
-    O código acima está no arquivo `/Lab4/erro_comum1.c`. Compile e execute ele. Os resultados foram os esperados? Se não, você consegue explicar por que eles foram diferentes?
+    O código acima está no arquivo `tarefa1.c`. Compile e execute ele. Os resultados foram os esperados? Se não, você consegue explicar por que eles foram diferentes?
 
     ??? note "Resposta"
         Como podemos ver, o código compila, mas seu comportamento é indefinido por duas razões:
@@ -65,10 +59,17 @@ scanf("%ld", &vetor[0]);
 !!! tip
     Diferentemente de outras linguagens, *C* não verifica os índices automaticamente nem inicializa o elementos do vetor com 0. Além disto, não é possível obter o tamanho de um vetor a partir de seu nome.
 
+!!! example
+    Conserte o código acima. Você deverá ler as posições do vetor usando `scanf` em um `for` e depois consertar o `for` do exemplo acima para não acessar as posições indevidas. 
+
+    **Sim, seu programa deverá ter dois `for`, um para leitura usando `scanf` que você deverá criar e o outro é o do exemplo acima, que deverá ser consertado.**
+
+    Conserte o código acima no arquivo `tarefa1.c`. Compile e teste sua solução usando `make tarefa1`.
+
 Um ponto importante é que o sistema de tipos não permite a conversão/passagem de vetores do mesmo tipo, mas com tamanhos diferentes. Assim, a função abaixo não aceitaria como argumento a variável `double arr[4]`, pois só aceita vetores de tamanho 3.
 
 ~~~{.c}
-double soma(double arr[3]) {
+double soma_3doubles(double arr[3]) {
     double s = 0;
     for (int i = 0; i < 3; i++) {
         s += arr[i];
@@ -84,13 +85,11 @@ double soma(double arr[], int n);
 ~~~
 
 !!! example 
-    Trabalharemos com o arquivo `Lab4/soma.c`. Abra-o e implemente, no local indicado, a função `soma` com a assinatura acima. Lembre-se que em *C* arrays não conhecem seu tamanho, então é de sua responsabilidade acessar somente elementos válidos e checar se o vetor não está vazio (ou seja, `n < 1`)
+    Trabalharemos com o arquivo `tarefa2.c`. Abra-o e implemente, no local indicado, a função `soma` com a assinatura acima. Lembre-se que em *C* arrays não conhecem seu tamanho, então é de sua responsabilidade acessar somente elementos válidos e checar se o vetor não está vazio (ou seja, `n < 1`)
  
  
 !!! question short
     O arquivo usado acima contém vários testes na função `main`. Leia a função `main` e escreva abaixo a notação usada para inicializar um array com valores constantes. Como você inicializaria um vetor de `int` com os valores $0, 2, 3, 2, 5$?
-
-
 
 ## Strings
 
@@ -113,7 +112,6 @@ Como visto na expositiva, strings são arrays de caracteres sendo que o último 
 !!! question short
      Em *C*, qual a diferença entre `"a"` e `'a'`? 
 
-
 Para imprimir uma string no terminal basta usar o código `%s` na string de formatação do printf:
 
 ~~~{.c}
@@ -134,17 +132,20 @@ fgets(str, STRING_LEN, stdin); // precisamos passar o tamanho máximo
 !!! question short
     Para iterar sobre todos os caracteres de uma string precisamos saber seu tamanho? Como podemos fazer isto? **Dica**: reveja a imagem e o exemplo de código do começo da seção.
 
-!!! example 
-    Crie um programa, do zero, que
+    ??? note "Solução"
+        O último caractere de uma string é sempre `'\0'`! Logo, podemos percorrer os caracteres até que um `'\0'` seja encontrado.
 
-    1. declara uma string de tamanho máximo 100
-    1. leia uma linha do terminal
+!!! example 
+    Crie uma função que:
+
+    1. recebe uma string de tamanho máximo 100
     1. conte o número de vezes que a letra "a" aparece
-    1. mostre esse valor no terminal
+    1. retorne este valor.
+
+    Implemente no arquivo `tarefa3.c` e teste com `make tarefa3`
 
 !!! example 
-    Modifique o programa acima para contar também o número de vezes que o caractere "1" aparece na string recebida.
-
+    E se fosse necessário contar o número de caracteres "1"? Implemente no arquivo `tarefa4.c` e teste com `make tarefa4`
 
 ## Matrizes
 
@@ -170,13 +171,14 @@ Perceba que toda a primeira linha é armazenada (contendo 3 `long`s) antes do in
     * `mat[1][2]`
     * `mat[2][0]` 
 
+!!! warning
+    As próximas tarefas devem ser feitas a partir de um arquivo vazio e compiladas usando os conhecimentos que vocês obtiveram no [Lab 3](/Lab3).
+
 !!! example 
     Faça, do zero, um programa que lê uma matriz $5\times 4$ e imprime no terminal a soma de cada uma de suas colunas. 
 
 !!! example 
     Modifique seu programa acima para, além das somas de cada coluna, imprimir também o índice da coluna de maior valor.
-
-
 
 ## Exercícios 
 
@@ -194,6 +196,18 @@ Agora que já trabalhamos um pouco com *arrays*, *strings* e matrizes está na h
  
     Seu programa deverá calcular a média usando uma função `avg` escrita por você mesmo e pode supor que `n < 100`. Para facilitar seus testes, escreva dois arquivos de entrada e use `<` para rodar o programa. 
 
+    ==Atenção, em C não podemos fazer isso:==
+    ```c
+        int s; 
+        scanf("%d", &s);
+        long vec[s];
+    ```
+    
+    C não suporta alocar memória dinâmica para um vetor. Sugerimos
+    vocês criarem um vetor de uma tamanho maior que o usuário
+    possa querer usar. Existe uma solução, mas vamos ver mais
+    para frente (`malloc`).
+    
 !!! example
     Modifique seu programa acima para que ele imprima também a variância do vetor. 
 
@@ -217,12 +231,10 @@ Agora que já trabalhamos um pouco com *arrays*, *strings* e matrizes está na h
 
     Existem pelo menos dois problemas graves neste código. Você consegue identificá-los? 
 
-
 !!! example
     Faça, do zero, um programa que leia uma string (tamanho máximo 200) e crie uma nova string trocando toda letra por maiúsculas. Seu programa deverá imprimir a string original e sua versão em maiúsculas. Seu programa deve funcionar para strings contendo números, símbolos, espaços e letras maiúsculas e minúsculas. Consulte a tabela abaixo, se necessário. 
 
     ![Tabela ASCII com valores em decimal e hexa](http://www.asciichars.com/_site_media/ascii/ascii-chars-landscape.jpg)
-
 
 ### Matrizes
 
@@ -239,11 +251,44 @@ Ou seja, primeiro lemos uma linha com a string "P2", depois dois inteiros `w` e 
 
 !!! warning 
     Nas tarefas abaixo estamos supondo que você usa `<` para passar o conteúdo das imagens exemplo para seu programa no terminal e `>` para salvar o resultado do terminal em uma nova imagem *pgm*.
+    
+    Exemplo:
+    
+    ```bash
+    $ ./tarega9 < entrada1.pgm
+    ```
 
 Para as tarefas abaixo você pode supor que as imagens tem tamanho máximo $512\times 512$. Para deixar seu código mais limpo, defina duas constantes `MAXW` e `MAXH` para guardar estes valores. 
 
 !!! example
     Crie, do zero, um programa que lê o cabeçalho de uma imagem *pgm* (primeiras três linhas) passada no terminal e imprima as dimensões da imagem. Não se esqueça de ler também o número `255` na terceira linha.
+    
+    Dica, de como ler a primeira linha do arquivo de imagem:
+    
+    ```c
+    // arquivo tarefa9.c
+    // 
+    // 1. compilar tarefa9.c
+    // 2. executar com: ./tarefa9 < entrada1.pgm
+    #include <stdio.h>
+    
+    int main() {
+        char linha[100];
+        int var;
+        
+        // header
+        fgets(linha, 100, stdin);
+        printf(linha);
+
+        // W
+        scanf("%d", &var);
+        printf("W %d \n", var);
+
+        return 0;
+    }
+    ```
+    
+    Agora você pode continuar lendo na sequência com `fgets` ou `scanf`.
 
 !!! example
     Crie uma função `void le_imagem(int mat[MAXH][MAXW], int w, int h)` que lê os valores da matriz da imagem e os escreve em `mat`. 
