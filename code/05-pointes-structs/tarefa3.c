@@ -5,6 +5,7 @@
 
 
 #include <stdio.h>
+#include <math.h>
 
 typedef struct {
     int x;
@@ -12,6 +13,15 @@ typedef struct {
 } ponto;
 
 // TODO: declare função manhattan aqui. Veja abaixo como ela será usada
+
+int manhattan(ponto a, ponto b){
+    int x = 0, y = 0, sum;
+    x = abs(a.x - b.x);
+    y = abs(a.y - b.y);
+    sum = x+y;
+    return sum; 
+
+}
 
 int main() {
     

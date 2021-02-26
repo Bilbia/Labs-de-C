@@ -7,7 +7,19 @@
 #include <stdio.h>
 
 /* TODO: implemente sua função conta_1 aqui */
-
+int conta_1(char arr[100]){
+    int count = 0, stop = 0, i=0;
+    while(stop == 0){
+        if (arr[i]=='\0'){
+            stop = 1;
+        }
+        else if(arr[i]=='1'){
+            count++;
+        }
+        i++;
+    }
+    return count;
+}
 
 int main() {
     

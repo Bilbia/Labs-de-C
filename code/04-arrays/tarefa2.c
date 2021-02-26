@@ -7,6 +7,19 @@
 #include <stdio.h>
 
 /* TODO: implemente sua função soma aqui */
+double soma(double arr[], int n){
+    if (n<1){
+        printf("O vetor esta vazio ou o tamanho indicado e invalido\n");
+        return 0;
+    }
+    else{
+        double s=0;
+        for(int i=0; i<n; i++){
+            s += arr[i];
+        }
+        return s;
+    }
+}
 
 
 int main() {
